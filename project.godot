@@ -11,8 +11,24 @@ config_version=5
 [application]
 
 config/name="Commander's Battles"
+run/main_scene="res://scenes/ui/main_menu/main.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=1980
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_height"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "yellow",
+"res://scenes/": "green",
+"res://themes/": "teal"
+}
 
 [rendering]
 

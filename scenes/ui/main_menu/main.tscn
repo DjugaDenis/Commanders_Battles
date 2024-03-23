@@ -1,0 +1,771 @@
+[gd_scene load_steps=27 format=3 uid="uid://bd08uh8ycsbcr"]
+
+[ext_resource type="Theme" uid="uid://cjbfjeu71nig0" path="res://themes/main_menu/navigation_menu/navigation_menu.tres" id="1_ey28k"]
+[ext_resource type="Texture2D" uid="uid://cf0khr84v6xcr" path="res://assets/sprites/ui/battle_page/hat.png" id="1_mosub"]
+[ext_resource type="Texture2D" uid="uid://dhbg7xxvogcxf" path="res://assets/sprites/ui/battle_page/xp.png" id="2_0p2tu"]
+[ext_resource type="Texture2D" uid="uid://dep4px0n860cp" path="res://assets/sprites/ui/navigation_menu/shop.png" id="2_1ahsu"]
+[ext_resource type="Texture2D" uid="uid://fayvu5sin47t" path="res://assets/sprites/ui/navigation_menu/cards.png" id="3_8pyly"]
+[ext_resource type="FontFile" uid="uid://bbff0wouc846y" path="res://assets/fonts/RubikMonoOne-Regular.ttf" id="3_j5ofn"]
+[ext_resource type="Texture2D" uid="uid://b5hiknqgp32o5" path="res://assets/sprites/ui/navigation_menu/battle.png" id="4_gcgid"]
+[ext_resource type="Texture2D" uid="uid://8i54vl1ro668" path="res://assets/sprites/ui/battle_page/resource_bg.png" id="4_q7sun"]
+[ext_resource type="Texture2D" uid="uid://xidwhowjla7x" path="res://assets/sprites/ui/navigation_menu/union.png" id="5_gj4wn"]
+[ext_resource type="Texture2D" uid="uid://dle4vm2otj4fn" path="res://assets/sprites/ui/battle_page/plus.png" id="5_sayga"]
+[ext_resource type="Texture2D" uid="uid://b5ojo2yq8wret" path="res://assets/sprites/ui/battle_page/star_coin.png" id="6_cpfa4"]
+[ext_resource type="Texture2D" uid="uid://uvr5e0oukjbc" path="res://assets/sprites/ui/navigation_menu/events.png" id="6_yssjm"]
+[ext_resource type="Texture2D" uid="uid://7fhgffjpk7go" path="res://assets/sprites/ui/battle_page/gem.png" id="7_22ylj"]
+[ext_resource type="Texture2D" uid="uid://cbfbw6pdvknnm" path="res://assets/sprites/ui/chests/shadow_spaceship_chest.png" id="8_4qqtw"]
+[ext_resource type="Texture2D" uid="uid://cf6m30aesmc0n" path="res://assets/sprites/ui/chests/spaceship_chest.png" id="9_6tqu6"]
+[ext_resource type="Texture2D" uid="uid://duinw1l2rwoyg" path="res://assets/sprites/ui/chests/commander_chest.png" id="10_uk3x4"]
+
+[sub_resource type="Shader" id="Shader_p2qtw"]
+code = "shader_type canvas_item;
+
+uniform vec4 color1: source_color;
+uniform vec4 color2: source_color;
+
+void fragment() {
+	vec4 mix1 = mix(color1, color2, UV.x);
+	vec4 mix2 = mix(color1, color2, UV.y);
+	COLOR = mix(mix1, mix2, 0.5);
+}
+
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ysgxx"]
+shader = SubResource("Shader_p2qtw")
+shader_parameter/color1 = Color(0.235294, 0.027451, 0.32549, 1)
+shader_parameter/color2 = Color(0.568627, 0.0392157, 0.403922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3pk7"]
+bg_color = Color(0.380392, 0.00392157, 0.639216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.439216, 1, 0.858824, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gg4qb"]
+bg_color = Color(0.2, 0.00392157, 0.329412, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.439216, 1, 0.858824, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s5l5w"]
+bg_color = Color(0.172549, 0.0745098, 0.32549, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.470588, 1, 0.945098, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6j24u"]
+texture = ExtResource("4_q7sun")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5vebs"]
+texture = ExtResource("4_q7sun")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6gwdx"]
+bg_color = Color(0.34902, 0.0980392, 0.556863, 0.498039)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.439216, 1, 0.858824, 0.498039)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u78od"]
+bg_color = Color(0.411765, 0.2, 0.8, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.470588, 1, 0.945098, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_0k143"]
+allow_unpress = true
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PagesContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.909
+offset_bottom = 0.179932
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BattlePage" type="Panel" parent="PagesContainer"]
+material = SubResource("ShaderMaterial_ysgxx")
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PagesContainer/BattlePage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="ResoursesContainer" type="MarginContainer" parent="PagesContainer/BattlePage/VBoxContainer"]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PagesContainer/BattlePage/VBoxContainer/ResoursesContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="LevelRewardButton" type="Button" parent="PagesContainer/BattlePage/VBoxContainer/ResoursesContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_f3pk7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f3pk7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gg4qb")
+icon = ExtResource("1_mosub")
+icon_alignment = 1
+expand_icon = true
+
+[node name="LevelProgress" type="Control" parent="PagesContainer/BattlePage/VBoxContainer/ResoursesContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="MarginContainer" type="MarginContainer" parent="PagesContainer/BattlePage/VBoxContainer/ResoursesContainer/HBoxContainer/LevelProgress"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 20
+
+[node name="ProgressBar" type="ProgressBar" parent="PagesContainer/BattlePage/VBoxContainer/ResoursesContainer/HBoxContainer/LevelProgress/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_s5l5w")
+theme_override_styles/fill = SubResource("StyleBoxTexture_6j24u")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="PagesContainer/BattlePage/VBoxContainer/ResoursesContainer/HBoxContainer/LevelProgress/MarginContainer/ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_j5ofn")
+theme_override_font_sizes/font_size = 24
+text = "500/1000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PagesContainer/BattlePage/VBoxContainer/ResoursesContainer/HBoxContainer/LevelProgress"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0
+offset_right = 53.125
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_0p2tu")
+expand_mode = 3
+
+[node name="StarCoinContainer" type="Control" parent="PagesContainer/BattlePage/VBoxContainer/ResoursesContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="MarginContainer" type="MarginContainer" parent="PagesContainer/BattlePage/VBoxContainer/ResoursesContainer/HBoxContainer/StarCoinContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel" type="Panel" parent="PagesContainer/BattlePage/VBoxContainer/ResoursesContainer/HBoxContainer/StarCoinContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5vebs")
+
+[node name="StarCoinCounter" type="HBoxContainer" parent="PagesContainer/BattlePage/VBoxContainer/ResoursesContainer/HBoxContainer/StarCoinContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+alignment = 1
+
+[node name="GoToBuyStarCoinButton" type="Button" parent="PagesContainer/BattlePage/VBoxContainer/ResoursesContainer/HBoxContainer/StarCoinContainer/StarCoinCounter"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+focus_mode = 0
+icon = ExtResource("5_sayga")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="PagesContainer/BattlePage/VBoxContainer/ResoursesContainer/HBoxContainer/StarCoinContainer/StarCoinCounter"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("3_j5ofn")
+theme_override_font_sizes/font_size = 24
+text = "1000"
+horizontal_alignment = 2
+vertical_alignment = 1
+clip_text = true
+
+[node name="TextureRect" type="TextureRect" parent="PagesContainer/BattlePage/VBoxContainer/ResoursesContainer/HBoxContainer/StarCoinContainer/StarCoinCounter"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("6_cpfa4")
+expand_mode = 3
+
+[node name="GemContainer" type="Control" parent="PagesContainer/BattlePage/VBoxContainer/ResoursesContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="MarginContainer" type="MarginContainer" parent="PagesContainer/BattlePage/VBoxContainer/ResoursesContainer/HBoxContainer/GemContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel" type="Panel" parent="PagesContainer/BattlePage/VBoxContainer/ResoursesContainer/HBoxContainer/GemContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5vebs")
+
+[node name="GemCounter" type="HBoxContainer" parent="PagesContainer/BattlePage/VBoxContainer/ResoursesContainer/HBoxContainer/GemContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="GoToBuyGemButton" type="Button" parent="PagesContainer/BattlePage/VBoxContainer/ResoursesContainer/HBoxContainer/GemContainer/GemCounter"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+focus_mode = 0
+icon = ExtResource("5_sayga")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="PagesContainer/BattlePage/VBoxContainer/ResoursesContainer/HBoxContainer/GemContainer/GemCounter"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("3_j5ofn")
+theme_override_font_sizes/font_size = 24
+text = "1000"
+horizontal_alignment = 2
+vertical_alignment = 1
+clip_text = true
+
+[node name="TextureRect" type="TextureRect" parent="PagesContainer/BattlePage/VBoxContainer/ResoursesContainer/HBoxContainer/GemContainer/GemCounter"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("7_22ylj")
+expand_mode = 3
+
+[node name="DailyRewardsContainer" type="MarginContainer" parent="PagesContainer/BattlePage/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PagesContainer/BattlePage/VBoxContainer/DailyRewardsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="FourHourChestPanel" type="Panel" parent="PagesContainer/BattlePage/VBoxContainer/DailyRewardsContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_6gwdx")
+
+[node name="Button" type="Button" parent="PagesContainer/BattlePage/VBoxContainer/DailyRewardsContainer/HBoxContainer/FourHourChestPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+flat = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PagesContainer/BattlePage/VBoxContainer/DailyRewardsContainer/HBoxContainer/FourHourChestPanel/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpaceshipChests" type="Control" parent="PagesContainer/BattlePage/VBoxContainer/DailyRewardsContainer/HBoxContainer/FourHourChestPanel/Button/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="SecondSpaceshipChestDisable" type="TextureRect" parent="PagesContainer/BattlePage/VBoxContainer/DailyRewardsContainer/HBoxContainer/FourHourChestPanel/Button/HBoxContainer/SpaceshipChests"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0990099
+anchor_top = 0.1
+anchor_right = 0.727723
+anchor_bottom = 0.6
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_4qqtw")
+expand_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="FirstSpaceshipChestDisable" type="TextureRect" parent="PagesContainer/BattlePage/VBoxContainer/DailyRewardsContainer/HBoxContainer/FourHourChestPanel/Button/HBoxContainer/SpaceshipChests"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.29703
+anchor_top = 0.4
+anchor_right = 0.920792
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_4qqtw")
+expand_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="SecondSpaceshipChestEnable" type="TextureRect" parent="PagesContainer/BattlePage/VBoxContainer/DailyRewardsContainer/HBoxContainer/FourHourChestPanel/Button/HBoxContainer/SpaceshipChests"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0990099
+anchor_top = 0.1
+anchor_right = 0.722772
+anchor_bottom = 0.6
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_6tqu6")
+expand_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="FirstSpaceshipChestEnable" type="TextureRect" parent="PagesContainer/BattlePage/VBoxContainer/DailyRewardsContainer/HBoxContainer/FourHourChestPanel/Button/HBoxContainer/SpaceshipChests"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.29703
+anchor_top = 0.4
+anchor_right = 0.920792
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_6tqu6")
+expand_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PagesContainer/BattlePage/VBoxContainer/DailyRewardsContainer/HBoxContainer/FourHourChestPanel/Button/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+alignment = 1
+
+[node name="Label" type="Label" parent="PagesContainer/BattlePage/VBoxContainer/DailyRewardsContainer/HBoxContainer/FourHourChestPanel/Button/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.964706, 0.466667, 1)
+theme_override_fonts/font = ExtResource("3_j5ofn")
+theme_override_font_sizes/font_size = 28
+text = "Spaceship Chest"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="PagesContainer/BattlePage/VBoxContainer/DailyRewardsContainer/HBoxContainer/FourHourChestPanel/Button/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_j5ofn")
+theme_override_font_sizes/font_size = 20
+text = "next in:"
+horizontal_alignment = 1
+
+[node name="SpaceshipChestTimeLabel" type="Label" parent="PagesContainer/BattlePage/VBoxContainer/DailyRewardsContainer/HBoxContainer/FourHourChestPanel/Button/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_j5ofn")
+theme_override_font_sizes/font_size = 30
+text = "1h 25min"
+horizontal_alignment = 1
+
+[node name="SpaceshipChestOpenLabel" type="Label" parent="PagesContainer/BattlePage/VBoxContainer/DailyRewardsContainer/HBoxContainer/FourHourChestPanel/Button/HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_j5ofn")
+theme_override_font_sizes/font_size = 42
+text = "Open"
+horizontal_alignment = 1
+
+[node name="GeneralChestPanel" type="Panel" parent="PagesContainer/BattlePage/VBoxContainer/DailyRewardsContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_6gwdx")
+
+[node name="Button" type="Button" parent="PagesContainer/BattlePage/VBoxContainer/DailyRewardsContainer/HBoxContainer/GeneralChestPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+flat = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PagesContainer/BattlePage/VBoxContainer/DailyRewardsContainer/HBoxContainer/GeneralChestPanel/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PagesContainer/BattlePage/VBoxContainer/DailyRewardsContainer/HBoxContainer/GeneralChestPanel/Button/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+alignment = 1
+
+[node name="Label" type="Label" parent="PagesContainer/BattlePage/VBoxContainer/DailyRewardsContainer/HBoxContainer/GeneralChestPanel/Button/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.470588, 1, 0.945098, 1)
+theme_override_fonts/font = ExtResource("3_j5ofn")
+theme_override_font_sizes/font_size = 28
+text = "Commander Chest"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="PagesContainer/BattlePage/VBoxContainer/DailyRewardsContainer/HBoxContainer/GeneralChestPanel/Button/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_j5ofn")
+theme_override_font_sizes/font_size = 20
+text = "to open:"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PagesContainer/BattlePage/VBoxContainer/DailyRewardsContainer/HBoxContainer/GeneralChestPanel/Button/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="ProgressBar" type="ProgressBar" parent="PagesContainer/BattlePage/VBoxContainer/DailyRewardsContainer/HBoxContainer/GeneralChestPanel/Button/HBoxContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_s5l5w")
+theme_override_styles/fill = SubResource("StyleBoxFlat_u78od")
+max_value = 10.0
+step = 1.0
+value = 6.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="PagesContainer/BattlePage/VBoxContainer/DailyRewardsContainer/HBoxContainer/GeneralChestPanel/Button/HBoxContainer/VBoxContainer/MarginContainer/ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_j5ofn")
+theme_override_font_sizes/font_size = 24
+text = "6/10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CommanderChestOpenLabel" type="Label" parent="PagesContainer/BattlePage/VBoxContainer/DailyRewardsContainer/HBoxContainer/GeneralChestPanel/Button/HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_j5ofn")
+theme_override_font_sizes/font_size = 42
+text = "Open"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PagesContainer/BattlePage/VBoxContainer/DailyRewardsContainer/HBoxContainer/GeneralChestPanel/Button/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureRect" type="TextureRect" parent="PagesContainer/BattlePage/VBoxContainer/DailyRewardsContainer/HBoxContainer/GeneralChestPanel/Button/HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("10_uk3x4")
+expand_mode = 5
+
+[node name="NavigationMenu" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.909
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.179932
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NavigationMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="ShopButton" type="Button" parent="NavigationMenu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("1_ey28k")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_0k143")
+icon_alignment = 1
+expand_icon = true
+
+[node name="MarginContainer" type="MarginContainer" parent="NavigationMenu/HBoxContainer/ShopButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NavigationMenu/HBoxContainer/ShopButton/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="NavigationMenu/HBoxContainer/ShopButton/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_1ahsu")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="NavigationMenu/HBoxContainer/ShopButton/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ey28k")
+text = "Shop"
+horizontal_alignment = 1
+
+[node name="CardsButton" type="Button" parent="NavigationMenu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("1_ey28k")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_0k143")
+icon_alignment = 1
+expand_icon = true
+
+[node name="MarginContainer" type="MarginContainer" parent="NavigationMenu/HBoxContainer/CardsButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NavigationMenu/HBoxContainer/CardsButton/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="NavigationMenu/HBoxContainer/CardsButton/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_8pyly")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="NavigationMenu/HBoxContainer/CardsButton/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ey28k")
+text = "Collection"
+horizontal_alignment = 1
+
+[node name="BattleButton" type="Button" parent="NavigationMenu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("1_ey28k")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_0k143")
+icon_alignment = 1
+expand_icon = true
+
+[node name="MarginContainer" type="MarginContainer" parent="NavigationMenu/HBoxContainer/BattleButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NavigationMenu/HBoxContainer/BattleButton/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="NavigationMenu/HBoxContainer/BattleButton/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_gcgid")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="NavigationMenu/HBoxContainer/BattleButton/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ey28k")
+text = "Battle"
+horizontal_alignment = 1
+
+[node name="UnionButton" type="Button" parent="NavigationMenu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("1_ey28k")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_0k143")
+icon_alignment = 1
+expand_icon = true
+
+[node name="MarginContainer" type="MarginContainer" parent="NavigationMenu/HBoxContainer/UnionButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NavigationMenu/HBoxContainer/UnionButton/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="NavigationMenu/HBoxContainer/UnionButton/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("5_gj4wn")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="NavigationMenu/HBoxContainer/UnionButton/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ey28k")
+text = "Union"
+horizontal_alignment = 1
+
+[node name="EventsButton" type="Button" parent="NavigationMenu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("1_ey28k")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_0k143")
+icon_alignment = 1
+expand_icon = true
+
+[node name="MarginContainer" type="MarginContainer" parent="NavigationMenu/HBoxContainer/EventsButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NavigationMenu/HBoxContainer/EventsButton/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="NavigationMenu/HBoxContainer/EventsButton/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("6_yssjm")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="NavigationMenu/HBoxContainer/EventsButton/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ey28k")
+text = "Events"
+horizontal_alignment = 1
