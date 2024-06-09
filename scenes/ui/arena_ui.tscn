@@ -1,0 +1,203 @@
+[gd_scene load_steps=9 format=3 uid="uid://ddi8wccl5d0ia"]
+
+[ext_resource type="FontFile" uid="uid://bbff0wouc846y" path="res://assets/fonts/RubikMonoOne-Regular.ttf" id="1_2or62"]
+[ext_resource type="Script" path="res://scripts/ui/arena_ui.gd" id="1_ba4us"]
+[ext_resource type="Script" path="res://scripts/ui/card_slot_button.gd" id="2_5ihs6"]
+[ext_resource type="Script" path="res://scripts/ui/energy.gd" id="3_r036h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y20a5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78eyw"]
+bg_color = Color(0.168627, 0.619608, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.87451, 0.87451, 0.87451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5lvl6"]
+bg_color = Color(0.372549, 0.564706, 0.631373, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.87451, 0.87451, 0.87451, 1)
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwtyu"]
+bg_color = Color(0.466667, 0.709804, 0.788235, 1)
+
+[node name="ArenaUI" type="CanvasLayer" node_paths=PackedStringArray("_card_holders")]
+script = ExtResource("1_ba4us")
+_card_holders = [NodePath("Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer/CardSlotButton1/CardHolder"), NodePath("Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer/CardSlotButton2/CardHolder"), NodePath("Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer/CardSlotButton3/CardHolder"), NodePath("Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer/CardSlotButton4/CardHolder")]
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -370.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_y20a5")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.85
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_2or62")
+theme_override_font_sizes/font_size = 24
+text = "Next
+card"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(136, 176)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CardsContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="CardSlotButton1" type="Button" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer"]
+custom_minimum_size = Vector2(187, 0)
+layout_mode = 2
+script = ExtResource("2_5ihs6")
+
+[node name="CardHolder" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer/CardSlotButton1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="CardSlotButton2" type="Button" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer"]
+custom_minimum_size = Vector2(187, 0)
+layout_mode = 2
+script = ExtResource("2_5ihs6")
+
+[node name="CardHolder" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer/CardSlotButton2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="CardSlotButton3" type="Button" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer"]
+custom_minimum_size = Vector2(187, 0)
+layout_mode = 2
+script = ExtResource("2_5ihs6")
+
+[node name="CardHolder" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer/CardSlotButton3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="CardSlotButton4" type="Button" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer"]
+custom_minimum_size = Vector2(187, 0)
+layout_mode = 2
+script = ExtResource("2_5ihs6")
+
+[node name="CardHolder" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer/CardSlotButton4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Energy" type="CenterContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_r036h")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/Energy"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/Energy/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_78eyw")
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/Energy/HBoxContainer/ColorRect"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_2or62")
+theme_override_font_sizes/font_size = 28
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel/MarginContainer/VBoxContainer/Energy/HBoxContainer"]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel/MarginContainer/VBoxContainer/Energy/HBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(800, 30)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_5lvl6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bwtyu")
+max_value = 10.0
+value = 6.0
+show_percentage = false
+
+[connection signal="button_down" from="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer/CardSlotButton1" to="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer/CardSlotButton1" method="_on_button_down"]
+[connection signal="button_up" from="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer/CardSlotButton1" to="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer/CardSlotButton1" method="_on_button_up"]
+[connection signal="button_down" from="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer/CardSlotButton2" to="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer/CardSlotButton2" method="_on_button_down"]
+[connection signal="button_up" from="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer/CardSlotButton2" to="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer/CardSlotButton2" method="_on_button_up"]
+[connection signal="button_down" from="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer/CardSlotButton3" to="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer/CardSlotButton3" method="_on_button_down"]
+[connection signal="button_up" from="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer/CardSlotButton3" to="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer/CardSlotButton3" method="_on_button_up"]
+[connection signal="button_down" from="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer/CardSlotButton4" to="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer/CardSlotButton4" method="_on_button_down"]
+[connection signal="button_up" from="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer/CardSlotButton4" to="Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer/CardsContainer/CardSlotButton4" method="_on_button_up"]

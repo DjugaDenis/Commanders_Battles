@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://dianm0mpg2law"]
+
+[ext_resource type="PackedScene" uid="uid://cer6gua3o4n28" path="res://scenes/components/health_bar.tscn" id="1_ena1w"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ngdyj"]
+radius = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mlt2d"]
+albedo_color = Color(0.619608, 0.160784, 0.160784, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hh3qi"]
+top_radius = 1.5
+bottom_radius = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y5r35"]
+albedo_color = Color(0.313726, 0.313726, 0.313726, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1fgyk"]
+top_radius = 0.2
+bottom_radius = 0.2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_brrwo"]
+height = 6.0
+radius = 8.0
+
+[node name="MainTower" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="HealthBar" parent="." instance=ExtResource("1_ena1w")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_ngdyj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_mlt2d")
+mesh = SubResource("CylinderMesh_hh3qi")
+
+[node name="TowerGun" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.75, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TowerGun"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00734234, 0, -0.992822)
+material_override = SubResource("StandardMaterial3D_y5r35")
+mesh = SubResource("CylinderMesh_1fgyk")
+
+[node name="DetectionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("CylinderShape3D_brrwo")

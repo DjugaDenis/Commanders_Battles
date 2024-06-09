@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://du3eux40dsqu8"]
+
+[ext_resource type="Script" path="res://scripts/battle_objects/units/test_unit.gd" id="1_yf2n4"]
+[ext_resource type="PackedScene" uid="uid://vvx81mpqoh4e" path="res://scenes/components/move_component.tscn" id="2_4o6cd"]
+[ext_resource type="PackedScene" uid="uid://b4s3awx2f8quy" path="res://scenes/components/melle_attack.tscn" id="3_4wngb"]
+[ext_resource type="PackedScene" uid="uid://teqn3kfyjn0g" path="res://scenes/components/detection_area.tscn" id="3_atm3u"]
+[ext_resource type="PackedScene" uid="uid://cer6gua3o4n28" path="res://scenes/components/health_bar.tscn" id="3_tcbyb"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_r2qvi"]
+radius = 8.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xruwq"]
+radius = 0.25
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4umv3"]
+albedo_color = Color(0.631373, 0.227451, 0.360784, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7jmn6"]
+radius = 0.25
+height = 1.0
+
+[node name="TestUnit" type="CharacterBody3D"]
+script = ExtResource("1_yf2n4")
+_type = 2
+
+[node name="MoveComponent" parent="." instance=ExtResource("2_4o6cd")]
+
+[node name="MelleAttack" parent="." instance=ExtResource("3_4wngb")]
+_damage = 100
+_radius = 0.1
+_attack_rate = 1.0
+
+[node name="HealthBar" parent="." instance=ExtResource("3_tcbyb")]
+_health_bar_width = 50
+
+[node name="DetectionArea" parent="." instance=ExtResource("3_atm3u")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_r2qvi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_xruwq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+material_override = SubResource("StandardMaterial3D_4umv3")
+mesh = SubResource("CapsuleMesh_7jmn6")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

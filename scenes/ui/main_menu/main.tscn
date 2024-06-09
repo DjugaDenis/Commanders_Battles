@@ -1,6 +1,6 @@
 [gd_scene load_steps=27 format=3 uid="uid://bd08uh8ycsbcr"]
 
-[ext_resource type="Theme" uid="uid://cjbfjeu71nig0" path="res://themes/main_menu/navigation_menu/navigation_menu.tres" id="1_ey28k"]
+[ext_resource type="Theme" uid="uid://cjbfjeu71nig0" path="res://resources/themes/main_menu/navigation_menu/navigation_menu.tres" id="1_ey28k"]
 [ext_resource type="Texture2D" uid="uid://cf0khr84v6xcr" path="res://assets/sprites/ui/battle_page/hat.png" id="1_mosub"]
 [ext_resource type="Texture2D" uid="uid://dhbg7xxvogcxf" path="res://assets/sprites/ui/battle_page/xp.png" id="2_0p2tu"]
 [ext_resource type="Texture2D" uid="uid://dep4px0n860cp" path="res://assets/sprites/ui/navigation_menu/shop.png" id="2_1ahsu"]

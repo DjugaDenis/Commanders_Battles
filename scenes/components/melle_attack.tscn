@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4s3awx2f8quy"]
+
+[ext_resource type="Script" path="res://scripts/components/melle_attack.gd" id="1_5hhkl"]
+
+[node name="MelleAttack" type="Node3D"]
+script = ExtResource("1_5hhkl")

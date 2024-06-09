@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6qgqdoc34h4x"]
+
+[ext_resource type="Texture2D" uid="uid://ldxo6bgnyr2p" path="res://assets/sprites/cards/test_unit.png" id="1_03srt"]
+[ext_resource type="Script" path="res://scripts/ui/card.gd" id="2_l4ali"]
+
+[node name="TestUnitTextureRect" type="TextureRect"]
+anchors_preset = -1
+anchor_right = 0.443
+anchor_bottom = 0.301
+offset_right = -438.44
+offset_bottom = -555.98
+texture = ExtResource("1_03srt")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("2_l4ali")
+_cost = 3
+_unit = "res://scenes/battle_objects/units/test_unit.tscn"

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://mk5af5pqdoux"]
+
+[ext_resource type="PackedScene" uid="uid://dxp54sp8oi8xw" path="res://scenes/arenas/base_arena.tscn" id="1_mo3ga"]
+
+[node name="BattleScene" type="Node3D"]
+
+[node name="BaseArena" parent="." instance=ExtResource("1_mo3ga")]
